@@ -21,7 +21,7 @@ class DnsRecordsQuery
     @_dns_records ||= begin
       result = included_hostnames.present? ? included_hostnames_query : DnsRecord.all
       result = result.where.not(id: excluded_hostnames_query.pluck(:id)) if excluded_hostnames.present?
-      result.limit(per_page).offset(per_page * (page - 1))
+      result.limit(per_page).offset(offset)
     end
   end
 

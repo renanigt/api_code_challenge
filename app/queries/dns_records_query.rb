@@ -1,7 +1,7 @@
 class DnsRecordsQuery
   def initialize(params: {}, page: 1, per_page: 10)
     @params = HashWithIndifferentAccess.new(params)
-    @page = page.to_i || 1
+    @page = page
     @per_page = per_page.to_i
   end
 
